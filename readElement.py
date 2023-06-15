@@ -77,6 +77,12 @@ for link in links:
         # Remove the found rows and all subsequent rows
         df = df.loc[:previous_rows.min() - 1] if len(previous_rows) > 0 else df
 
+        # Remove rows with empty values
+        df = df.dropna(how='all')
+
+        # Reset the index of the DataFrame
+        df = df.reset_index(drop=True)
+
         # Extract the file name
         file_name = component_url.split("/")[-1].split(".")[0]
         file_name_suffix = header_rows[0][0].split('(', 1)[1].split(')')[0]
