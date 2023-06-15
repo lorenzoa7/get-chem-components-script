@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
+print('Starting the script...')
 # URL of the HTML file
 component_url = "https://janaf.nist.gov/tables/C-095.html"
 
@@ -75,3 +76,5 @@ if len(table) > 0:
     print(f"File saved successfully: .../{folder_path}/{file_name}")
 else:
     print("No table found on the page:", component_url)
+
+print('End of the script. The file should be on "output/" folder.')

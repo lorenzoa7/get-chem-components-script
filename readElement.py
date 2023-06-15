@@ -3,8 +3,12 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
+print('Starting the script...')
 # URL of the HTML file
 element_url = "https://janaf.nist.gov/tables/C-index.html"
+
+# Set the element name
+element_name = element_url.split("/")[4].split("-")[0]
 
 # Make an HTTP request and retrieve the HTML content
 response = requests.get(element_url)
@@ -33,6 +37,7 @@ for tr in trs:
     # Add the link to the list
     links.append(link)
 
+print(f'Starting to collect the data of {len(links)} components from the element "{element_name}"...')
 # Iterate over each link
 for link in links:
     # Construct the full URL for the link
@@ -89,8 +94,7 @@ for link in links:
         file_name = f"{file_name}_({file_name_suffix}).txt"
 
         # Define the folder path
-        folder_name = file_name.split('-')[0]
-        folder_path = f'output/{folder_name}'
+        folder_path = f'output/{element_name}'
 
         # Full file path
         file_path = os.path.join(folder_path, file_name)
@@ -107,3 +111,5 @@ for link in links:
         print(f"File saved successfully: .../{folder_path}/{file_name}")
     else:
         print("No table found on the page:", component_url)
+
+print('End of the script. Every file should be on "output/" folder.')
