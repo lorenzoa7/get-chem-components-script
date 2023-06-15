@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 import os
 
 # URL of the HTML file
-url = "https://janaf.nist.gov/tables/C-095.html"
+component_url = "https://janaf.nist.gov/tables/C-095.html"
 
 # Make an HTTP request and retrieve the HTML content
-response = requests.get(url)
+response = requests.get(component_url)
 html_content = response.content
 
 # Create the BeautifulSoup object to parse the HTML
@@ -34,7 +34,7 @@ if len(table) > 0:
     header_text = '\n'.join([' '.join(row) for row in header_rows])
 
     # Read the table from the HTML page
-    df = pd.read_html(url)[0]
+    df = pd.read_html(component_url)[0]
 
     # Remove the first four rows
     df = df.iloc[4:]
@@ -46,7 +46,7 @@ if len(table) > 0:
     df = df.loc[:previous_rows.min() - 1] if len(previous_rows) > 0 else df
 
     # Extract the file name
-    file_name = url.split("/")[-1].split(".")[0]
+    file_name = component_url.split("/")[-1].split(".")[0]
     file_name_suffix = header_rows[0][0].split('(', 1)[1].split(')')[0]
     file_name = f"{file_name}_({file_name_suffix}).txt"
 
@@ -68,4 +68,4 @@ if len(table) > 0:
 
     print(f"File saved successfully: .../{folder_path}/{file_name}")
 else:
-    print("No table found on the page:", url)
+    print("No table found on the page:", component_url)
