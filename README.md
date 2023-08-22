@@ -8,7 +8,7 @@
   
 </div>
 
-![Get Chem Components Script Demo](https://github.com/lorenzoa7/ai-chatbot/blob/master/assets/github/demo_get_chem_components_script.gif)
+![Get Chem Components Script Demo](https://github.com/lorenzoa7/get-chem-components-script/blob/master/assets/github/demo_get_chem_components_script.gif)
 
 
 ## 📑 About
