@@ -48,13 +48,9 @@
 <h3>4. Run the script you want</h3>
 <pre>
   <code>
-    python readAll.py
-  </code>
-  <code>
-    python readComponent.py
-  </code>
-  <code>
-    python readElement.py
+    > python readAll.py
+    > python readComponent.py
+    > python readElement.py
   </code>
 </pre>
 
