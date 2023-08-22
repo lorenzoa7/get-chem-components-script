@@ -19,7 +19,7 @@
 - Consumption of data from an external website
 - HTML file formatting
 - File generation
-- Manipulating data with Pandas
+- Data manipulation with Pandas
 
 
 ## 🎮 How to start
